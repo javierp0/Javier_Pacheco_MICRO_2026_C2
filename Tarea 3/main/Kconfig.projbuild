@@ -1,0 +1,41 @@
+menu "Tarea 3 - ESP32 WiFi MQTT"
+
+    config TAREA3_WIFI_SSID
+        string "Nombre de la red WiFi"
+        default "CAMBIA_TU_WIFI"
+        help
+            SSID de la red WiFi donde se conectara el ESP32.
+
+    config TAREA3_WIFI_PASSWORD
+        string "Clave de la red WiFi"
+        default "CAMBIA_TU_CLAVE"
+        help
+            Clave de la red WiFi. Dejar vacio solo si la red es abierta.
+
+    config TAREA3_MQTT_URI
+        string "URI del broker MQTT"
+        default "mqtt://broker.hivemq.com:1883"
+        help
+            Broker MQTT usado por el ESP32. Ejemplo: mqtt://broker.hivemq.com:1883
+
+    config TAREA3_TOPIC_BASE
+        string "Topic base MQTT"
+        default "javier_pacheco_micro_2026_c2/tarea3"
+        help
+            Topic base usado para comandos y estado.
+
+    config TAREA3_LED_GPIO
+        int "GPIO del LED"
+        default 2
+        range 0 39
+        help
+            En muchas placas ESP32 DevKit el LED integrado esta en GPIO2.
+
+    config TAREA3_BUTTON_GPIO
+        int "GPIO del boton"
+        default 0
+        range 0 39
+        help
+            En muchas placas ESP32 DevKit el boton BOOT esta en GPIO0.
+
+endmenu
