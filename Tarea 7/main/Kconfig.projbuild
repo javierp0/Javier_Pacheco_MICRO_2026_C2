@@ -1,0 +1,39 @@
+menu "Tarea 7 - Medidor de reaccion humana"
+
+    config REACTION_WIFI_SSID
+        string "WiFi SSID"
+        default ""
+        help
+            Nombre de la red WiFi usada por el ESP32 clasico.
+
+    config REACTION_WIFI_PASSWORD
+        string "WiFi password"
+        default ""
+        help
+            Contrasena de la red WiFi. Dejar vacio solo para redes abiertas.
+
+    config REACTION_MQTT_URI
+        string "MQTT broker URI"
+        default "mqtt://broker.hivemq.com:1883"
+        help
+            Broker usado para publicar los datos del ensayo.
+
+    config REACTION_MQTT_USERNAME
+        string "MQTT username"
+        default ""
+        help
+            Usuario MQTT. Por defecto queda vacio para HiveMQ public broker.
+
+    config REACTION_MQTT_PASSWORD
+        string "MQTT password"
+        default ""
+        help
+            Contrasena MQTT. Por defecto queda vacia para HiveMQ public broker.
+
+    config REACTION_TOPIC_BASE
+        string "MQTT topic base"
+        default "Javier Pacheco/tarea8/reaccion"
+        help
+            Topico base solicitado para visualizar en MQTTX.
+
+endmenu

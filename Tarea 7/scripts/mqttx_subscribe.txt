@@ -1,0 +1,12 @@
+MQTTX connection:
+
+Protocol: mqtt://
+Host: broker.hivemq.com
+Port: 1883
+Username: empty
+Password: empty
+SSL/TLS: disabled
+
+Subscribe to:
+
+Javier Pacheco/tarea8/reaccion/#
