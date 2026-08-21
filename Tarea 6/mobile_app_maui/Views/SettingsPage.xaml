@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PortonSeguroIoT.Maui.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Configuracion"
+    BackgroundColor="{StaticResource PageBackground}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Border Style="{StaticResource PanelStyle}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Broker MQTT" Style="{StaticResource HeaderLabelStyle}" />
+                    <Label Text="{Binding Status}" Style="{StaticResource MutedLabelStyle}" />
+
+                    <Label Text="IP del broker" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding Host}" Keyboard="Url" Placeholder="192.168.1.100" />
+
+                    <Label Text="Puerto MQTT" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding Port}" Keyboard="Numeric" Placeholder="1883" />
+
+                    <Label Text="Usuario opcional" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding Username}" />
+
+                    <Label Text="Contrasena opcional" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding Password}" IsPassword="True" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource PanelStyle}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Tiempos en segundos" Style="{StaticResource HeaderLabelStyle}" />
+
+                    <Label Text="Auto-cierre" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding AutoCloseS}" Keyboard="Numeric" />
+
+                    <Label Text="Recorrido maximo" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding MaxTravelS}" Keyboard="Numeric" />
+
+                    <Label Text="Espera FTC" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding FtcWaitS}" Keyboard="Numeric" />
+
+                    <Label Text="Pausa antes de invertir" Style="{StaticResource FieldLabelStyle}" />
+                    <Entry Text="{Binding ReversePauseS}" Keyboard="Numeric" />
+
+                    <Grid ColumnDefinitions="*,Auto" Padding="0,8">
+                        <Label Text="Auto-cierre software" VerticalTextAlignment="Center" Style="{StaticResource BodyLabelStyle}" />
+                        <Switch Grid.Column="1" IsToggled="{Binding AutoCloseSw}" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto" Padding="0,8">
+                        <Label Text="Modo mantenimiento" VerticalTextAlignment="Center" Style="{StaticResource BodyLabelStyle}" />
+                        <Switch Grid.Column="1" IsToggled="{Binding MaintenanceSw}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="58,58,58,58" ColumnSpacing="10" RowSpacing="10">
+                <Button Text="Conectar" Command="{Binding ConnectCommand}" Style="{StaticResource PrimaryButtonStyle}" />
+                <Button Grid.Column="1" Text="Desconectar" Command="{Binding DisconnectCommand}" Style="{StaticResource SecondaryButtonStyle}" />
+                <Button Grid.Row="1" Text="Guardar local" Command="{Binding SaveLocalCommand}" Style="{StaticResource SecondaryButtonStyle}" />
+                <Button Grid.Row="1" Grid.Column="1" Text="Enviar config" Command="{Binding SendConfigCommand}" Style="{StaticResource PrimaryButtonStyle}" />
+                <Button Grid.Row="2" Text="Guardar en ESP32" Command="{Binding SaveConfigInEspCommand}" Style="{StaticResource SecondaryButtonStyle}" />
+                <Button Grid.Row="2" Grid.Column="1" Text="Calibrar" Command="{Binding CalibrateCommand}" Style="{StaticResource SecondaryButtonStyle}" />
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Reset de error" Command="{Binding ResetErrorCommand}" Style="{StaticResource DangerButtonStyle}" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

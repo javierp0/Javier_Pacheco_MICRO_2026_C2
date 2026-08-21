@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PortonSeguroIoT.Maui.Views.EventsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Eventos"
+    BackgroundColor="{StaticResource PageBackground}">
+    <CollectionView ItemsSource="{Binding Events}" Margin="20">
+        <CollectionView.EmptyView>
+            <VerticalStackLayout Padding="20" Spacing="8">
+                <Label Text="Sin eventos todavia" Style="{StaticResource HeaderLabelStyle}" />
+                <Label Text="Conecta la app al broker MQTT para recibir eventos del ESP32." Style="{StaticResource MutedLabelStyle}" />
+            </VerticalStackLayout>
+        </CollectionView.EmptyView>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Border Style="{StaticResource EventItemStyle}">
+                    <Grid ColumnDefinitions="82,*" ColumnSpacing="12">
+                        <Label Text="{Binding TimeText}" Style="{StaticResource MutedLabelStyle}" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="3">
+                            <Label Text="{Binding Type}" Style="{StaticResource SectionLabelStyle}" />
+                            <Label Text="{Binding Message}" Style="{StaticResource BodyLabelStyle}" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

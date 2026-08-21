@@ -1,0 +1,23 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "input_manager.c"
+        "motor_control.c"
+        "gate_fsm.c"
+        "wifi_manager.c"
+        "mqtt_manager.c"
+        "storage.c"
+        "buzzer.c"
+        "status_led.c"
+        "encoder.c"
+        "display.c"
+    INCLUDE_DIRS "."
+    REQUIRES
+        esp_event
+        esp_netif
+        esp_timer
+        esp_wifi
+        esp_driver_gpio
+        mqtt
+        nvs_flash
+)

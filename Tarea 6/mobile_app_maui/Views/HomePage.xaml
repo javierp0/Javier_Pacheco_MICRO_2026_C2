@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PortonSeguroIoT.Maui.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Inicio"
+    BackgroundColor="{StaticResource PageBackground}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Border Style="{StaticResource PanelStyle}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Porton Seguro IoT" Style="{StaticResource HeaderLabelStyle}" />
+                    <Label Text="{Binding ConnectionText}" Style="{StaticResource MutedLabelStyle}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource PanelStyle}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Estado actual" Style="{StaticResource SectionLabelStyle}" />
+                    <Label Text="{Binding State}" Style="{StaticResource StateLabelStyle}" />
+                    <Label Text="{Binding Error, StringFormat='Error: {0}'}" Style="{StaticResource MutedLabelStyle}" />
+                    <ProgressBar Progress="{Binding PositionProgress}" ProgressColor="{StaticResource AccentColor}" />
+                    <Grid ColumnDefinitions="*,*,*">
+                        <Label Text="Cerrado" Style="{StaticResource MutedLabelStyle}" />
+                        <Label Grid.Column="1" Text="{Binding PositionPct, StringFormat='{0}%'}" HorizontalTextAlignment="Center" Style="{StaticResource MutedLabelStyle}" />
+                        <Label Grid.Column="2" Text="Abierto" HorizontalTextAlignment="End" Style="{StaticResource MutedLabelStyle}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="88,88" ColumnSpacing="10" RowSpacing="10">
+                <Button Grid.Row="0" Grid.Column="0" Text="Abrir" Command="{Binding OpenCommand}" Style="{StaticResource PrimaryButtonStyle}" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Cerrar" Command="{Binding CloseCommand}" Style="{StaticResource PrimaryButtonStyle}" />
+                <Button Grid.Row="1" Grid.ColumnSpan="2" Text="STOP" Command="{Binding StopCommand}" Style="{StaticResource DangerButtonStyle}" />
+            </Grid>
+
+            <Border Style="{StaticResource PanelStyle}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Ultimo evento" Style="{StaticResource SectionLabelStyle}" />
+                    <Label Text="{Binding LastEvent}" Style="{StaticResource BodyLabelStyle}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource PanelStyle}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Sensores y DIP" Style="{StaticResource SectionLabelStyle}" />
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="8">
+                        <Label Text="{Binding DeviceOnline, StringFormat='ESP32 online: {0}'}" Style="{StaticResource BodyLabelStyle}" />
+                        <Label Grid.Column="1" Text="{Binding FtcBlocked, StringFormat='FTC: {0}'}" Style="{StaticResource BodyLabelStyle}" />
+                        <Label Grid.Row="1" Text="{Binding LimitOpen, StringFormat='Final abierto: {0}'}" Style="{StaticResource BodyLabelStyle}" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding LimitClosed, StringFormat='Final cerrado: {0}'}" Style="{StaticResource BodyLabelStyle}" />
+                        <Label Grid.Row="2" Text="{Binding DipAutoClose, StringFormat='DIP auto: {0}'}" Style="{StaticResource BodyLabelStyle}" />
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding DipMaintenance, StringFormat='DIP mant.: {0}'}" Style="{StaticResource BodyLabelStyle}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
