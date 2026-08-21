@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF ESP32-S3",
+            "compilerPath": "C:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc.exe",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/esp/v6.0/esp-idf/components/**",
+                "C:/esp/v6.0/esp-idf/components/esp_adc/include",
+                "C:/esp/v6.0/esp-idf/components/esp_driver_gpio/include",
+                "C:/esp/v6.0/esp-idf/components/esp_driver_i2c/include",
+                "C:/esp/v6.0/esp-idf/components/esp_hal_ana_conv/include",
+                "C:/esp/v6.0/esp-idf/components/esp_hal_i2c/include",
+                "C:/esp/v6.0/esp-idf/components/freertos/FreeRTOS-Kernel/include",
+                "C:/esp/v6.0/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include",
+                "C:/esp/v6.0/esp-idf/components/freertos/config/include",
+                "C:/esp/v6.0/esp-idf/components/freertos/config/xtensa/include",
+                "C:/esp/v6.0/esp-idf/components/log/include",
+                "C:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include",
+                "C:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/xtensa-esp-elf/include",
+                "C:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include"
+            ],
+            "defines": [
+                "ESP_PLATFORM",
+                "IDF_VER=\"v6.0\""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
